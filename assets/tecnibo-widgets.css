@@ -1,0 +1,28 @@
+/* 
+    Created on : 13 sept. 2020, 22:48:19
+    Author     : dro
+*/
+
+div.tecnibo-widget-submenu{
+    border: 1px solid #f00;
+    text-align: left;
+}
+div.tecnibo-widget-submenu h1.title-tecnibo-widgets{
+    margin: 0 0 11px;
+    font-family: Oswald,sans-serif;
+    font-size: 18px;
+    
+}
+div.tecnibo-widget-submenu img{
+ width:200px;
+ height: auto;
+}
+div.tecnibo-widget-submenu a{
+    display: block;
+    margin: 10px;
+    font-size: 16px;
+}
+div.tecnibo-widget-submenu a:hover{
+    background-color: #fff!important;
+}
+
