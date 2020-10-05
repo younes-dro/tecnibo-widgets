@@ -16,8 +16,8 @@ class DRO_WIDGET extends WP_Widget {
         add_action( 'init' , array( $this , 'widget_textdomain') );
 
         $params = array(
-            'description' => __( 'Displays the featured image in the sub menu', 'tecbnibo-widgets' ),
-            'name' => __( 'Tecnibo Widgets', 'tecbnibo-widgets' )
+            'description' => __( 'Displays the 3 Column in the sub menu', 'tecbnibo-widgets' ),
+            'name' => __( 'Tecnibo Widgets 3 Col', 'tecbnibo-widgets' )
         );
         parent::__construct('dro_widget', '', $params);
         add_action( 'wp_enqueue_scripts' , array( $this , 'register_widget_styles' ));
@@ -27,9 +27,10 @@ class DRO_WIDGET extends WP_Widget {
     function form($instance) {
 
         extract($instance);
+        
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('projectid') ?>"><?php esc_html__('Project / Page ID', 'tecbnibo-widgets' )?></label>
+            <label for="<?php echo $this->get_field_id('projectid') ?>"><?php esc_html_e('ID(Product/Project)', 'tecbnibo-widgets' )?></label>
             <input type="text" 
                    class="widefat"
                    id="<?php echo $this->get_field_id('projectid') ?>"
