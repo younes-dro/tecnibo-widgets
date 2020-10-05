@@ -32,6 +32,9 @@ class Sub_Menu_3Col extends WP_Widget {
                    value="<?php if (isset($projectid)) echo esc_attr($projectid) ?>"
                    />
         </p>
+        <p>
+            <label for=""><?php esc_h?></label>
+        </p>
         <?php
     }
 

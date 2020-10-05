@@ -20,6 +20,7 @@ class Tecnibo_Widgets {
         
         add_action('init', array( $this, 'widget_textdomain' ) );
         include_once $this->plugin_path() . '/includes/sub-menu-3col.php';
+        include_once $this->plugin_path() . '/includes/sub-menu-1col.php';
 
         add_action('widgets_init', array($this, 'register_tecnibo_widgets'));
         add_action('wp_enqueue_scripts', array($this, 'register_widget_styles'));
@@ -27,6 +28,7 @@ class Tecnibo_Widgets {
 
     public function register_tecnibo_widgets() {
         register_widget('Sub_Menu_3Col');
+        register_widget('Sub_Menu_1Col');
     }
 
     function register_widget_styles() {
