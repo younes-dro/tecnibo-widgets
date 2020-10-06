@@ -14,7 +14,7 @@ div.tecnibo-widget-submenu-1col h1 {
 div.tecnibo-widget-submenu-1col p {
   margin-top: 20px;
   font-size: 15px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 div.tecnibo-widget-submenu-1col a {
   display: inline-block;
@@ -40,7 +40,7 @@ div.tecnibo-widget-submenu-3col h1 {
 div.tecnibo-widget-submenu-3col img {
   width: 200px;
   height: auto;
-  opacity: 0.8;
+  opacity: 1;
 }
 div.tecnibo-widget-submenu-3col a {
   display: block;
