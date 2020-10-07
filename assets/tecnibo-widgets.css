@@ -84,15 +84,15 @@ div.megamenu-cat div.parent-cat h2.title-cat {
   padding-bottom: 5px;
 }
 div.megamenu-cat div.parent-cat div.sub-cat {
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
 }
 div.megamenu-cat div.parent-cat div.sub-cat a {
   border-bottom: 1px solid #f1f1f1;
   display: block;
-  padding-bottom: 4px;
+  padding: 12px 20px;
 }
 div.megamenu-cat div.parent-cat div.sub-cat a:hover {
-  /*background-color: #ccc;*/
+  background-color: #f8f8f8;
 }
 div.megamenu-cat div.parent-cat div.sub-cat a.see-more {
   color: #cf0400 !important;
