@@ -1,0 +1,32 @@
+/*!
+
+*/
+div.megamenu-cat{
+    display:flex;
+    div.parent-cat{
+
+        /*border-bottom: 1px solid #ccc;*/
+        margin-right: 40px;
+
+        h2.title-cat{
+            margin-bottom: 15px;
+            border-bottom: 2px solid;
+            padding-bottom: 5px;
+        }
+
+        div.sub-cat{
+            margin-bottom: 15px;
+            a{
+                border-bottom: 1px solid #f1f1f1;
+                display: block;
+                padding-bottom: 4px;
+                &:hover{
+                    /*background-color: #ccc;*/
+                }
+            }
+            a.see-more{
+                color: rgb(207,4,0)!important;
+            }
+        }
+    }   
+}
