@@ -33,7 +33,7 @@ class Mega_Menu_Categories extends WP_Widget {
         foreach ($parent_cats as $parent_cat ) {
             
             $html .= '<div class="parent-cat">';
-            $html .=  '<h2 class="title-cat">' . $parent_cat->name . '</h2>';
+            $html .=  '<a class="see-more" href="'.get_term_link($parent_cat->slug, 'product_category').'"><h2 class="title-cat">' . $parent_cat->name . '</h2></a>';
             
             $sub_cats = self::get_sub_cat($parent_cat->term_id);
             $number_subcat = self::get_number_subcat($parent_cat->term_id);
@@ -43,7 +43,7 @@ class Mega_Menu_Categories extends WP_Widget {
                 $html .= '<a href="'. get_term_link($sub_cat->slug, 'product_category') .'" title="">' . $sub_cat->name . '</a>';
                 $html .= '</div>';
             }
-            $seemore = ( $number_subcat > 6 ) ? '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'See More', 'tecnibo-widgets' ).'</a>' : '';
+            $seemore = ( $number_subcat > 6 ) ? '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'All', 'tecnibo-widgets' ).'</a>' : '';
             $html .= '<div class="sub-cat">';
             $html .= $seemore;
             $html .= '</div>';
