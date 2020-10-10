@@ -13,6 +13,8 @@ Younes DRO https://github.com/younes-dro
 /************* 1 Col ***************/
 div.tecnibo-widget-submenu-1col {
   text-align: left;
+  margin-right: 10px;
+  border-right: 1px solid;
 }
 div.tecnibo-widget-submenu-1col h1 {
   color: #6ec1e4;
@@ -23,6 +25,7 @@ div.tecnibo-widget-submenu-1col p {
   margin-top: 20px;
   font-size: 15px;
   font-weight: 300;
+  line-height: 1.5;
 }
 div.tecnibo-widget-submenu-1col a {
   display: inline-block;

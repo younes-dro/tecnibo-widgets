@@ -7,6 +7,8 @@
 div.tecnibo-widget-submenu-1col{
 
     text-align: left;
+    margin-right: 10px;
+    border-right: 1px solid;
     h1{
         color: #6ec1e4;
         font-weight: 600;
@@ -16,6 +18,7 @@ div.tecnibo-widget-submenu-1col{
         margin-top: 20px;
         font-size: 15px;
         font-weight: 300;
+        line-height: 1.5;
     }
     a{
         display: inline-block;
