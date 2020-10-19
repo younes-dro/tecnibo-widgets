@@ -26,32 +26,32 @@ class Mega_Menu_Categories extends WP_Widget {
 //        extract($args);
 //        extract($instance);
         
-        $html = '<div class="megamenu-cat">';
+        $html = '<ul class="megamenu-cat sub-menu">';
         
         $parent_cats = self::get_parent_cat();
         
         foreach ($parent_cats as $parent_cat ) {
             
-            $html .= '<div class="parent-cat">';
+            $html .= '<li class="parent-cat menu-item menu-item-has-children">';
             $html .=  '<a class="see-more" href="'.get_term_link($parent_cat->slug, 'product_category').'"><h2 class="title-cat">' . $parent_cat->name . '</h2></a>';
-            
+            $html.= '<ul class="sub-menu">';
             $sub_cats = self::get_sub_cat($parent_cat->term_id);
             $number_subcat = self::get_number_subcat($parent_cat->term_id);
             foreach ($sub_cats as $sub_cat) {
                 
-                $html .= '<div class="sub-cat">';
+                $html .= '<li class="sub-cat menu-item">';
                 $html .= '<a href="'. get_term_link($sub_cat->slug, 'product_category') .'" title="">' . $sub_cat->name . '</a>';
-                $html .= '</div>';
+                $html .= '</li>';
             }
-            $seemore = ( $number_subcat > 6 ) ? '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'All', 'tecnibo-widgets' ).'</a>' : '';
-            $html .= '<div class="sub-cat">';
-            $html .= $seemore;
-            $html .= '</div>';
-            
-            $html .= '</div>';
+//            $seemore = ( $number_subcat > 6 ) ? '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'All', 'tecnibo-widgets' ).'</a>' : '';
+//            $html .= '<div class="sub-cat">';
+//            $html .= $seemore;
+//            $html .= '</div>';
+            $html .='</ul>';
+            $html .= '</li>';
         }
         
-        $html .= '</div>';
+        $html .= '</ul>';
         
         echo $html;
         
@@ -67,7 +67,7 @@ class Mega_Menu_Categories extends WP_Widget {
     public static function get_sub_cat( $parent_id ){
         $terms = get_terms( array(
                             'taxonomy' => 'product_category',
-                            'hide_empty' => false,
+                            'hide_empty' => true,
                             'parent' => $parent_id,
                             'number' => 6
             ) );
