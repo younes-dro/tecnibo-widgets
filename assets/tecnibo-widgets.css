@@ -74,30 +74,28 @@ div.tecnibo-widget-submenu-3col a:hover h2 {
 /*!
 
 */
-div.megamenu-cat {
-  display: flex;
-}
-div.megamenu-cat div.parent-cat {
+nav#site-navigation ul.megamenu-cat li.parent-cat {
   /*border-bottom: 1px solid #ccc;*/
   margin-right: 40px;
+  float: left !important;
 }
-div.megamenu-cat div.parent-cat h2.title-cat {
+nav#site-navigation ul.megamenu-cat li.parent-cat h2.title-cat {
   margin-bottom: 15px;
   border-bottom: 2px solid;
   padding-bottom: 5px;
 }
-div.megamenu-cat div.parent-cat div.sub-cat {
+nav#site-navigation ul.megamenu-cat li.parent-cat li.sub-cat {
   /*margin-bottom: 15px;*/
 }
-div.megamenu-cat div.parent-cat div.sub-cat a {
-  border-bottom: 1px solid #f1f1f1;
+nav#site-navigation ul.megamenu-cat li.parent-cat li.sub-cat a {
+  /*border-bottom: 1px solid #f1f1f1;*/
   display: block;
   padding: 12px 20px;
 }
-div.megamenu-cat div.parent-cat div.sub-cat a:hover {
+nav#site-navigation ul.megamenu-cat li.parent-cat li.sub-cat a:hover {
   background-color: #f8f8f8;
 }
-div.megamenu-cat div.parent-cat div.sub-cat a.see-more {
+nav#site-navigation ul.megamenu-cat li.parent-cat li.sub-cat a.see-more {
   color: #cf0400 !important;
 }
 
