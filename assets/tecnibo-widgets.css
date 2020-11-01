@@ -52,6 +52,7 @@ div.tecnibo-widget-submenu-3col img {
   width: 200px;
   height: auto;
   opacity: 1;
+  margin-bottom: 10px;
 }
 div.tecnibo-widget-submenu-3col a {
   display: block;
@@ -75,7 +76,7 @@ div.tecnibo-widget-submenu-3col a:hover h2 {
 
 */
 nav#site-navigation ul.megamenu-cat li.parent-cat {
-  /*border-bottom: 1px solid #ccc;*/
+  border-bottom: 0;
   margin-right: 40px;
   float: left !important;
 }

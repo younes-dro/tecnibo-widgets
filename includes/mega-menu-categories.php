@@ -40,13 +40,16 @@ class Mega_Menu_Categories extends WP_Widget {
             foreach ($sub_cats as $sub_cat) {
                 
                 $html .= '<li class="sub-cat menu-item">';
-                $html .= '<a href="'. get_term_link($sub_cat->slug, 'product_category') .'" title="">' . $sub_cat->name . '</a>';
+                $html .= '<a href="'. get_term_link($sub_cat->slug, 'product_category') .'" title="'.  $sub_cat->name .'">' . $sub_cat->name . '</a>';
                 $html .= '</li>';
             }
-//            $seemore = ( $number_subcat > 6 ) ? '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'All', 'tecnibo-widgets' ).'</a>' : '';
-//            $html .= '<div class="sub-cat">';
-//            $html .= $seemore;
-//            $html .= '</div>';
+            $seeall = '';
+            if( $number_subcat > 6){
+                $seeall .= '<li class="sub-cat menu-item">';
+                $seeall .= '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'See All', 'tecnibo-widgets' ).'</a>';
+                $seeall .= '</li>';
+            }
+            $html .= $seeall;
             $html .='</ul>';
             $html .= '</li>';
         }
