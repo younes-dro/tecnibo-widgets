@@ -11,7 +11,7 @@ class Sub_Menu_3Col extends WP_Widget {
 
         $params = array(
             'description' => __( 'Displays the 3 Column in the SubMenu', 'tecnibo-widgets' ),
-            'name' => __( 'Tecnibo SubMenu 3 Column', 'tecnibo-widgets' )
+            'name' => __( 'Sous-Menu 3 Colonne', 'tecnibo-widgets' )
         );
         parent::__construct('Sub_Menu_3Col', '', $params);
         

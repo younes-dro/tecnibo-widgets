@@ -11,7 +11,7 @@ class Sub_Menu_1Col extends WP_Widget {
 
         $params = array(
             'description' => __( 'Displays the 1 Column in the SubMenu', 'tecnibo-widgets' ),
-            'name' => __( 'Tecnibo SubMenu 1 Column', 'tecnibo-widgets' )
+            'name' => __( 'Sous-Menu 1 Colonne', 'tecnibo-widgets' )
         );
         parent::__construct('Sub_Menu_1Col', '', $params);
         
@@ -68,7 +68,7 @@ class Sub_Menu_1Col extends WP_Widget {
         $content .= '<div class="tecnibo-widget-submenu-1col">';
         $content .= '<h1>'. $title_1col.'</h2>';
         $content .= '<p>'. $text_1col.'</p>';
-        $content .= '<a href="'. get_permalink( $the_post->ID ) .'" title="">'.$button_1col.'</a>';
+        $content .= '<a class="button-1col" href="'. get_permalink( $the_post->ID ) .'" title="">'.$button_1col.'</a>';
         $content .= '</div>';
                
         
