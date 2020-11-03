@@ -41,20 +41,22 @@ class Sub_Menu_3Col extends WP_Widget {
     function widget($args, $instance) {
         extract($args);
         extract($instance);
-        
-        $the_post = get_post( $projectid );
-        $post_thumbnail_url = get_the_post_thumbnail_url($the_post->ID);
-        
-        $content .= '<div class="tecnibo-widget-submenu-3col">';
-        $content .= '<a href="'. get_permalink( $the_post->ID ) .'" title="'.  esc_html__( $the_post->post_title , 'tecnibo-widgets').'">';
-        $content .= '<h1>'.  esc_attr__( 'You might also be interested in', 'tecnibo-widgets' ).'</h1>';
-        $content .= '<img src ="'.$post_thumbnail_url.'" />';        
-        $content .= '<h2>'.$the_post->post_title.'</h2>';
-        $content .= '</a>';
-        $content .= '</div>';
-               
-        
-        echo $content;
+        if( $projectid ) {
+            
+            $the_post = get_post( $projectid );
+                    
+            $post_thumbnail_url = get_the_post_thumbnail_url($the_post->ID);
+
+            $content .= '<div class="tecnibo-widget-submenu-3col">';
+            $content .= '<a href="'. get_permalink( $the_post->ID ) .'" title="'.  esc_html__( $the_post->post_title , 'tecnibo-widgets').'">';
+            $content .= '<h1>'.  esc_attr__( 'You might also be interested in', 'tecnibo-widgets' ).'</h1>';
+            $content .= '<img src ="'.$post_thumbnail_url.'" />';        
+            $content .= '<h2>'.$the_post->post_title.'</h2>';
+            $content .= '</a>';
+            $content .= '</div>';
+
+            echo $content;
+        }
         
     }
   
