@@ -44,7 +44,7 @@ class Sub_Menu_3Col extends WP_Widget {
         if( $projectid ) {
             
             $the_post = get_post( $projectid );
-                    
+                  
             $post_thumbnail_url = get_the_post_thumbnail_url($the_post->ID);
 
             $content .= '<div class="tecnibo-widget-submenu-3col">';

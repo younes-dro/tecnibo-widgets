@@ -81,9 +81,12 @@ nav#site-navigation ul.megamenu-cat li.parent-cat {
   float: left !important;
 }
 nav#site-navigation ul.megamenu-cat li.parent-cat h2.title-cat {
-  margin-bottom: 15px;
-  border-bottom: 2px solid;
+  margin-bottom: 0px;
+  border-bottom: 1px solid;
   padding-bottom: 5px;
+}
+nav#site-navigation ul.megamenu-cat li.parent-cat h2.title-cat:hover {
+  color: #fe5252;
 }
 nav#site-navigation ul.megamenu-cat li.parent-cat li.sub-cat {
   /*margin-bottom: 15px;*/

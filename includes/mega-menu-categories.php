@@ -15,10 +15,10 @@ class Mega_Menu_Categories extends WP_Widget {
         );
         parent::__construct('Mega_Menu_Categories', '', $params);
         
-
+        
     }
-
-    function form($instance) {
+ 
+            function form($instance) {
         //
     }
 
@@ -29,30 +29,32 @@ class Mega_Menu_Categories extends WP_Widget {
         $html = '<ul class="megamenu-cat sub-menu">';
         
         $parent_cats = self::get_parent_cat();
-        
         foreach ($parent_cats as $parent_cat ) {
-            
             $html .= '<li class="parent-cat menu-item menu-item-has-children">';
             $html .=  '<a class="see-more" href="'.get_term_link($parent_cat->slug, 'product_category').'"><h2 class="title-cat">' . $parent_cat->name . '</h2></a>';
             $html.= '<ul class="sub-menu">';
             
-            // Final Proudcts
-            $html .= self::get_final_products($parent_cat->term_id);
-            $sub_cats = self::get_sub_cat($parent_cat->term_id);
-            $number_subcat = self::get_number_subcat($parent_cat->term_id);
-            foreach ($sub_cats as $sub_cat) {
-                
-                $html .= '<li class="sub-cat menu-item">';
-                $html .= '<a href="'. get_term_link($sub_cat->slug, 'product_category') .'" title="'.  $sub_cat->name .'">' . $sub_cat->name . '</a>';
-                $html .= '</li>';
+            if ( get_option( 'mainmenu_'.$parent_cat->term_id ) ){
+                $html .= self::build_menu_from_option( $parent_cat->term_id );
+            }else{
+                // Final Proudcts
+                $html .= self::get_final_products( $parent_cat->term_id );
+                $sub_cats = self::get_sub_cat( $parent_cat->term_id );
+                $number_subcat = self::get_number_subcat( $parent_cat->term_id );
+                foreach ( $sub_cats as $sub_cat ) {
+
+                    $html .= '<li class="sub-cat menu-item">';
+                    $html .= '<a href="'. get_term_link( $sub_cat->slug, 'product_category' ) .'" title="'.  $sub_cat->name .'">' . $sub_cat->name . '</a>';
+                    $html .= '</li>';
+                }
+                $seeall = '';
+                if( $number_subcat > 6 ){
+                    $seeall .= '<li class="sub-cat menu-item">';
+                    $seeall .= '<a class="see-more" href="'. get_term_link( $parent_cat->slug, 'product_category' ) .'" title="">'.  __( 'See All', 'tecnibo-widgets' ).'</a>';
+                    $seeall .= '</li>';
+                }
+                $html .= $seeall;                
             }
-            $seeall = '';
-            if( $number_subcat > 6){
-                $seeall .= '<li class="sub-cat menu-item">';
-                $seeall .= '<a class="see-more" href="'. get_term_link($parent_cat->slug, 'product_category') .'" title="">'.  __( 'See All', 'tecnibo-widgets' ).'</a>';
-                $seeall .= '</li>';
-            }
-            $html .= $seeall;
             $html .='</ul>';
             $html .= '</li>';
         }
@@ -60,6 +62,7 @@ class Mega_Menu_Categories extends WP_Widget {
         $html .= '</ul>';
         
         echo $html;
+
         
     }
     public static function get_parent_cat (){
@@ -114,6 +117,42 @@ class Mega_Menu_Categories extends WP_Widget {
                             'parent' => $parent_id,
             ) );
         return count( $terms );        
+    }
+    
+    public static function build_menu_from_option ($parent_cat ){
+        $html = '';
+        $options = get_option( 'mainmenu_'.$parent_cat );
+//        echo '<pre>';
+//        var_dump($options);
+//        echo '<pre>';
+        $mainmenus = $options[$parent_cat];
+        foreach ( $mainmenus as $mainmenu ) {
+            $type = explode( '_', $mainmenu);
+            if( $type[0] === 'p'){
+                $html .= self::get_single_product( $type[1]);
+            }else if($type[0] === 'c' ){
+                $cat = get_term( $type[1], 'product_category' );
+//                var_dump($cat);
+                if( $cat){
+                    $html .= '<li class="sub-cat menu-item">';
+                    $html .= '<a href="'. get_term_link( $cat->slug, 'product_category' ) .'" title="'.  $cat->name .'">' . $cat->name . '</a>';
+                    $html .= '</li>';
+                }
+            }
+        }
+        
+        return $html;
+    }
+    
+    public static function get_single_product( $product_id ){
+        $html = '';
+        $product  = get_post( $product_id );
+        $html .= '<li class="sub-cat menu-item">';
+        $html .= '<a title="'. $product->post_title . '" href="'. get_permalink( $product_id ).'" >'. $product->post_title .'</a>';
+        $html .= '</li>';
+        wp_reset_postdata();
+
+        return $html;
     }
     
 }

@@ -11,9 +11,12 @@ nav#site-navigation{
             float: left!important;
 
             h2.title-cat{
-                margin-bottom: 15px;
-                border-bottom: 2px solid;
+                margin-bottom: 0px;
+                border-bottom: 1px solid;
                 padding-bottom: 5px;
+                &:hover{
+                    color: #fe5252;
+                }
             }
 
             li.sub-cat{
