@@ -7,7 +7,8 @@
  * Author: Younes DRO
  * Author URI: https://github.com/younes-dro
  * Version: 1.0
- * Text Domain: tecbnibo-widgets
+ * Text Domain: tecnibo-widgets
+ * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
