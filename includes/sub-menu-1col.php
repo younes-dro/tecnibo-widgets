@@ -68,7 +68,10 @@ class Sub_Menu_1Col extends WP_Widget {
         $content .= '<div class="tecnibo-widget-submenu-1col">';
         $content .= '<h1>'. $title_1col.'</h2>';
         $content .= '<p>'. $text_1col.'</p>';
-        $content .= '<a class="button-1col" href="'. get_permalink( $the_post->ID ) .'" title="">'.$button_1col.'</a>';
+        if ( isset($button_1col) && !empty($button_1col)){
+            $content .= '<a class="button-1col" href="'. get_permalink( $the_post->ID ) .'" title="">'.$button_1col.'</a>';
+        }
+        
         $content .= '</div>';
                
         
